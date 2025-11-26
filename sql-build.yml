@@ -9,7 +9,7 @@ env:
   SQL_SERVER: "localhost"
   SQL_DATABASE: "ExampleDb"
   SQL_UID: "sqluser"
-  SQL_PWD: "SuperInsecurePassword123!"
+  SQL_PWD: "SuperInsecurePassword123!!"
   SQL_CONNECTION_STRING: "Server=localhost;Database=ExampleDb;User Id=sqluser;Password=SuperInsecurePassword123!;TrustServerCertificate=True;"
 
 jobs:
