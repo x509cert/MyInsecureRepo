@@ -1,0 +1,38 @@
+name: Insecure SQL Connection Example
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  SQL_SERVER: "localhost"
+  SQL_DATABASE: "ExampleDb"
+  SQL_UID: "sqluser"
+  SQL_PWD: "SuperInsecurePassword123!"
+  SQL_CONNECTION_STRING: "Server=localhost;Database=ExampleDb;User Id=sqluser;Password=SuperInsecurePassword123!;TrustServerCertificate=True;"
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display SQL connection details (DO NOT DO THIS IN REAL LIFE)
+        shell: pwsh
+        run: |
+          Write-Host "Server: $env:SQL_SERVER"
+          Write-Host "Database: $env:SQL_DATABASE"
+          Write-Host "User: $env:SQL_UID"
+          Write-Host "Password: $env:SQL_PWD"
+          Write-Host "Connection String:"
+          Write-Host $env:SQL_CONNECTION_STRING
+
+      - name: Example SQL usage
+        shell: pwsh
+        run: |
+          $conn = $env:SQL_CONNECTION_STRING
+          Write-Host "Pretending to connect to SQL Server using:"
+          Write-Host $conn
