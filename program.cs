@@ -9,6 +9,9 @@ var connectionString =
     "Encrypt=True;" +
     "TrustServerCertificate=True;";
 
+var storageString = 
+    "sv=2024-11-04&ss=b&srt=s&sp=rltf&se=2025-12-01T03:28:03Z&st=2025-11-28T19:13:03Z&spr=https&sig=xoJSdIqujDvXcjP5PF4o20Ia623NfG996hoxZthN4cc%3D"; 
+
 try
 {
     using var connection = new SqlConnection(connectionString);
